@@ -1,8 +1,9 @@
 
 import os
 import requests
-from flask import Flask, request, jsonify, json
+from flask import Flask, request, jsonify, json ,render_template
 from Storage import Storage 
+from swagger import *
 
 
 
@@ -32,6 +33,15 @@ def register_new_user(nome):
         data = request.get_json()
         result = Storage(data.nome,data.amigo)
         return data,201
+
+@app.route("/swagger/api")
+def swagger_api():    
+    with open("public/swagger.yaml", "r") as f:
+        content = f.read()
+    return "<pre>"+content+"</pre>"
+@app.route("/explorer")
+def explorer():
+    return render_template('swagger-ui/index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
