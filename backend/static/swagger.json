@@ -1,0 +1,121 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Python Flask REST API"
+  },
+  "consumes": ["text/plain"],
+  "produces": ["application/json"],
+  "paths": {
+    "/show_all_users": {
+      "get": {
+        "operationId": "get",
+        "description": "Get todos os usuarios registrados na base de dados",
+        "responses": {
+          "200": {
+            "description": "Get todos os usuarios registrados na base de dados",
+            "schema": {
+              "$ref": "#/definitions/show_all_users"
+            },
+            "examples": {
+              "application/json": {
+                "status": "running"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show_friends": {
+      "get": {
+        "operationId": "GET_1",
+        "description": "Get amigos de um usuario especifico",
+        "responses": {
+          "200": {
+            "description": "Get amigos de um usuario especifico",
+            "schema": {
+              "$ref": "#/definitions/show_friends"
+            },
+            "examples": {
+              "application/json": {
+                "status": "finished"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/show_friend_recomendation": {
+      "get": {
+        "operationId": "GET_2",
+        "description": "Get friend recomendation for a specific user",
+        "responses": {
+          "200": {
+            "description": "friend recomendation for a specific user",
+            "schema": {
+              "$ref": "#/definitions/show_friend_recomendation"
+            },
+            "examples": {
+              "application/json": {
+                "status": "running"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/register_new_user": {
+      "post": {
+        "operationId": "POST",
+        "description": "POST add new user",
+        "responses": {
+          "200": {
+            "description": "Register new user and friend",
+            "schema": {
+              "$ref": "#/definitions/register_new_user"
+            },
+            "examples": {
+              "application/json": {
+                "status": "finished"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "show_all_users": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "show_friends": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "show_friend_recomendation": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "register_new_user": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
