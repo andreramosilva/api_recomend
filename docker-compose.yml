@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  # mysql
+  mysql_db_container:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_db_data_container:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+      #admniner
+  adminer_container:
+    image: adminer:latest
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql_db_container
+    ports:
+      - 8080:8080
+    networks:
+      - mysql-compose-network
+      #api deploy
+  backend_flask:
+    build:
+      dockerfile: ./backend/Dockerfile
+      context: .
+    #command: sleep 1
+    ports:
+      - "5000:5000"
+    networks:
+      - mysql-compose-network
+
+networks:
+  mysql-compose-network:
+    driver: bridge
+
+volumes:
+  mysql_db_data_container:
