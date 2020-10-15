@@ -25,9 +25,6 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
 APP.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 ### end swagger specific ###
 
-# storage = Storage()
-
-# print(storage.show_all_friends("ana"))
 
 
 APP.register_blueprint(get_blueprint())
@@ -76,23 +73,6 @@ if __name__ == '__main__':
         APP.run(host='0.0.0.0', port=PORT, debug=False)
 
 
-
-
-
-# # app.register_blueprint(request_api.get_blueprint())
-
-# # @app.route("/swagger/api")
-# # def swagger_api():    
-# #     with open("public/swagger.yaml", "r") as f:
-# #         content = f.read()
-# #     return "<pre>"+content+"</pre>"
-
-# # @app.route("/explorer")
-# # def explorer():
-# #     return render_template('swagger-ui/index.html')
-
-# if __name__ == '__main__':
-#     app.run(debug=True, use_reloader=True)
 
 
 
