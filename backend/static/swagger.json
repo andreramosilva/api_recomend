@@ -30,17 +30,33 @@
       "get": {
         "operationId": "GET_1",
         "description": "Get amigos de um usuario especifico",
-        "responses": {
-          "200": {
-            "description": "Get amigos de um usuario especifico",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "body",
+            "description": "List of user object",
+            "required": true,
             "schema": {
-              "$ref": "#/definitions/show_friends"
-            },
-            "examples": {
-              "application/json": {
-                "status": "finished"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/show_friends"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
           }
         }
       }
@@ -48,18 +64,34 @@
     "/show_friend_recomendation": {
       "get": {
         "operationId": "GET_2",
-        "description": "Get friend recomendation for a specific user",
-        "responses": {
-          "200": {
-            "description": "friend recomendation for a specific user",
+        "description": "Get recomendacoes de amigos para um usuario especifico",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "body",
+            "description": "List of user object",
+            "required": true,
             "schema": {
-              "$ref": "#/definitions/show_friend_recomendation"
-            },
-            "examples": {
-              "application/json": {
-                "status": "running"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/user"
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/show_friend_recomendation"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
           }
         }
       }
@@ -67,18 +99,34 @@
     "/register_new_user": {
       "post": {
         "operationId": "POST",
-        "description": "POST add new user",
-        "responses": {
-          "200": {
-            "description": "Register new user and friend",
+        "description": "Post registrar novo usuario",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "body",
+            "description": "List of user object",
+            "required": true,
             "schema": {
-              "$ref": "#/definitions/register_new_user"
-            },
-            "examples": {
-              "application/json": {
-                "status": "finished"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/registra"
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/show_friend_recomendation"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
           }
         }
       }
@@ -115,6 +163,33 @@
         "status": {
           "type": "string"
         }
+      }
+    },
+    "registra": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "format": "int64"
+        },
+        "amigo": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "xml": {
+        "name": "User"
       }
     }
   }

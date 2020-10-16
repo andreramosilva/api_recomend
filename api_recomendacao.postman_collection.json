@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "e48bfe31-f607-4fda-b088-59b8331456f3",
+		"name": "api_recomendacao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/register_new_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"andre\",\n    \"amigo\":\"vinicius\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/register_new_user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"register_new_user"
+					]
+				},
+				"description": "Regitrar novo usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/show_all_users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/show_all_users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"show_all_users"
+					]
+				},
+				"description": "Mostrar todos os usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/show_friends",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"ana\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/show_friends",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"show_friends"
+					]
+				},
+				"description": "Mostrar amigos de usuario especifico"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/show_friend_recomendation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"ana\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/show_friend_recomendation",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"show_friend_recomendation"
+					]
+				},
+				"description": "Mostrar recomendacao de amigo para usuario especifico"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
