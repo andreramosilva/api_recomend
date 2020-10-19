@@ -1,7 +1,7 @@
 # created by virtualenv automatically
 .pyc
-bin
-docker
-.env
+./bin
+./docker
+./.env
 .cfg
-lib
+./lib
