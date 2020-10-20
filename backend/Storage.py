@@ -40,7 +40,7 @@ class Storage():
                                          database='dbuser_amigo_recomend',
                                          user='root',
                                          password='rootpassword')
-   
+            # TODO: resolver query no codigo
             query = "INSERT INTO user_amigo (nome,amigo) VALUES('"+nome+"','"+amigo+")"
             sql_select_Query = "INSERT INTO user_amigo (nome,amigo) VALUES({nome},{amigo})"
             cursor = connection.cursor()
@@ -65,11 +65,8 @@ class Storage():
                                          database='dbuser_amigo_recomend',
                                          user='root',
                                          password='rootpassword')
-
+            # TODO: resolver query no codigo
             query = "select * from (select nome from user_amigo where nome_amigo <> '"+nome+"' and nome <> '"+nome+"') nao_amigo left join  (select nome_amigo from user_amigo where nome = '"+nome+"') amigo on nome = nome_amigo where nome_amigo is null"
-            print("#####")
-            print(query)
-            print("######")
             sql_select_Query = query
             cursor = connection.cursor()
             cursor.execute(sql_select_Query)
@@ -95,9 +92,8 @@ class Storage():
                                          database='dbuser_amigo_recomend',
                                          user='root',
                                          password='rootpassword')
-
+            # TODO: resolver query no codigo
             query = "select * from user_amigo where nome = '"+nome+"'"
-            print(query)
 
             sql_select_Query = query
             cursor = connection.cursor()
